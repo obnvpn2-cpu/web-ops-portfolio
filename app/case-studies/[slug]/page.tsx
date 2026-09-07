@@ -1,9 +1,10 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ExternalLink } from "lucide-react";
-import { caseStudies, getCaseStudy } from "@/data/caseStudies";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ChartbeatFlow } from "@/components/ChartbeatFlow";
 import { Footer } from "@/components/Footer";
+import { caseStudies, getCaseStudy } from "@/data/caseStudies";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -18,16 +19,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const study = getCaseStudy(slug);
 
   if (!study) {
-    return {
-      title: "実績詳細",
-    };
+    return { title: "実績詳細" };
   }
 
   return {
-    title: `${study.title} | 実績詳細`,
+    title: `${study.title} | Web Engineer Portfolio`,
     description: study.summary,
     openGraph: {
-      title: `${study.title} | 実績詳細`,
+      title: `${study.title} | Web Engineer Portfolio`,
       description: study.summary,
       type: "article",
     },
@@ -43,137 +42,132 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-full bg-slate-50 text-slate-950">
+    <div className="min-h-full bg-white text-slate-950">
       <main>
-        <section className="border-b border-slate-200 bg-[linear-gradient(90deg,#f8fafc_0,#f8fafc_29px,#e2e8f0_30px),linear-gradient(0deg,#f8fafc_0,#f8fafc_29px,#e2e8f0_30px)] bg-[size:30px_30px]">
-          <div className="mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-14">
-            <Link
-              href="/#case-studies"
-              className="inline-flex min-h-11 items-center gap-2 border-2 border-slate-950 bg-white px-4 py-2 text-sm font-bold text-slate-950 transition hover:-translate-y-0.5 hover:bg-teal-50 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal-700"
-            >
-              <ArrowLeft aria-hidden="true" size={16} />
-              一覧へ戻る
-            </Link>
-            <div className="mt-10 max-w-4xl">
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-teal-700">
-                {study.label} / {study.period}
-              </p>
-              <h1 className="mt-4 text-4xl font-black leading-tight text-slate-950 sm:text-6xl">
-                {study.title}
-              </h1>
-              <p className="mt-6 text-lg leading-9 text-slate-800">{study.summary}</p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <article>
+          <header className="border-b border-slate-200 bg-slate-50">
+            <div className="mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-16">
+              <Link
+                href="/#case-studies"
+                className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-slate-700 underline decoration-slate-300 decoration-2 underline-offset-4 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal-700"
+              >
+                <ArrowLeft aria-hidden="true" size={16} />
+                ケーススタディ一覧へ戻る
+              </Link>
+              <div className="mt-10 max-w-4xl">
+                <p className="text-sm font-bold text-teal-800">{study.label} ・ {study.period}</p>
+                <h1 className="mt-4 text-balance text-4xl font-black leading-tight tracking-[-0.03em] text-slate-950 sm:text-6xl">
+                  {study.title}
+                </h1>
+                <p className="mt-6 max-w-3xl text-pretty text-lg leading-9 text-slate-700">{study.summary}</p>
                 {study.sourceUrl ? (
                   <a
                     href={study.sourceUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex min-h-12 items-center justify-center gap-2 border-2 border-slate-950 bg-slate-950 px-5 py-3 text-sm font-bold text-white shadow-[5px_5px_0_#f2b705] transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal-700"
+                    className="mt-7 inline-flex min-h-12 items-center gap-2 bg-slate-950 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-teal-800 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal-700"
                   >
-                    公開ページを見る
-                    <ExternalLink aria-hidden="true" size={16} />
+                    {study.title}の公開ページ
+                    <span className="sr-only">（新しいタブで開きます）</span>
+                    <ArrowUpRight aria-hidden="true" size={16} />
                   </a>
                 ) : null}
               </div>
             </div>
-          </div>
-        </section>
+          </header>
 
-        <section className="py-12 sm:py-16">
-          <div className="mx-auto grid max-w-6xl gap-6 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr]">
-            <aside className="space-y-4">
-              <InfoCard title="担当範囲">
-                <ul className="flex flex-wrap gap-2">
-                  {study.responsibilities.map((item) => (
-                    <li key={item} className="border border-slate-300 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </InfoCard>
-              <InfoCard title="使用技術">
-                <ul className="flex flex-wrap gap-2">
-                  {study.technologies.map((item) => (
-                    <li key={item} className="bg-slate-950 px-3 py-2 font-mono text-xs font-semibold text-white">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </InfoCard>
-              <InfoCard title="公開範囲">
-                <p className="text-sm leading-7 text-slate-700">{study.confidentiality}</p>
-              </InfoCard>
-            </aside>
+          <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16">
+            {study.slug === "chartbeat-ranking" ? (
+              <div className="mb-12">
+                <ChartbeatFlow />
+              </div>
+            ) : null}
 
-            <div className="space-y-6">
-              <DetailBlock title="背景と課題">
-                <p>{study.problem}</p>
-              </DetailBlock>
-              <DetailBlock title="役割と体制">
-                <p>{study.role}</p>
-                <p className="mt-4">{study.team}</p>
-              </DetailBlock>
-              <DetailBlock title="制約">
-                <ul className="space-y-2">
-                  {study.constraints.map((item) => (
-                    <li key={item} className="border-l-4 border-amber-400 pl-3">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </DetailBlock>
-              <DetailBlock title="進め方">
-                <div className="space-y-4">
-                  {study.process.map((step, index) => (
-                    <article key={step.title} className="grid gap-3 border border-slate-200 bg-slate-50 p-4 sm:grid-cols-[72px_1fr]">
-                      <p className="font-mono text-sm font-bold text-teal-700">手順{index + 1}</p>
-                      <div>
-                        <h3 className="font-bold text-slate-950">{step.title}</h3>
-                        <p className="mt-2 text-sm leading-7 text-slate-700">{step.description}</p>
-                      </div>
-                    </article>
-                  ))}
-                </div>
-              </DetailBlock>
-              <DetailBlock title="工夫したこと">
-                <p>{study.approach}</p>
-              </DetailBlock>
-              <DetailBlock title="結果">
-                <p>{study.result}</p>
-                <ul className="mt-4 space-y-2">
-                  {study.outcomes.map((item) => (
-                    <li key={item} className="border-l-4 border-teal-700 pl-3">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </DetailBlock>
-              <DetailBlock title="学び">
-                <p>{study.learned}</p>
-              </DetailBlock>
+            <div className="grid gap-12 lg:grid-cols-[0.34fr_1fr] lg:gap-16">
+              <aside aria-label="案件概要">
+                <dl className="border-t border-slate-300 text-sm">
+                  <MetaItem term="担当範囲" detail={study.responsibilities.join(" / ")} />
+                  <MetaItem term="使用技術" detail={study.technologies.join(" / ")} />
+                  <MetaItem term="体制" detail={study.team} />
+                  <MetaItem term="公開範囲" detail={study.confidentiality} />
+                </dl>
+              </aside>
+
+              <div className="space-y-12">
+                <DetailSection title="課題">
+                  <p>{study.problem}</p>
+                </DetailSection>
+
+                <DetailSection title="担当した役割">
+                  <p>{study.role}</p>
+                </DetailSection>
+
+                <DetailSection title="制約と確認条件">
+                  <ul className="grid gap-3">
+                    {study.constraints.map((item) => (
+                      <li key={item} className="bg-slate-50 px-4 py-3">{item}</li>
+                    ))}
+                  </ul>
+                </DetailSection>
+
+                <DetailSection title="調査から運用まで">
+                  <ol className="space-y-7">
+                    {study.process.map((step, index) => (
+                      <li key={step.title} className="grid gap-3 sm:grid-cols-[44px_1fr]">
+                        <span aria-hidden="true" className="grid size-9 place-items-center bg-teal-800 text-sm font-bold text-white">
+                          {index + 1}
+                        </span>
+                        <div>
+                          <h3 className="font-bold text-slate-950">{step.title}</h3>
+                          <p className="mt-2 text-sm leading-7 text-slate-700">{step.description}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                </DetailSection>
+
+                <DetailSection title="設計で優先したこと">
+                  <p>{study.approach}</p>
+                </DetailSection>
+
+                <DetailSection title="結果">
+                  <p>{study.result}</p>
+                  <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                    {study.outcomes.map((item) => (
+                      <li key={item} className="border-t-2 border-teal-700 pt-3 text-sm leading-7 text-slate-700">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </DetailSection>
+
+                <DetailSection title="振り返り">
+                  <p>{study.learned}</p>
+                </DetailSection>
+              </div>
             </div>
           </div>
-        </section>
+        </article>
       </main>
       <Footer />
     </div>
   );
 }
 
-function InfoCard({ title, children }: { title: string; children: React.ReactNode }) {
+function MetaItem({ term, detail }: { term: string; detail: string }) {
   return (
-    <section className="border-2 border-slate-950 bg-white p-5 shadow-[5px_5px_0_#0f766e]">
-      <h2 className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-teal-700">{title}</h2>
-      <div className="mt-4">{children}</div>
-    </section>
+    <div className="border-b border-slate-300 py-5">
+      <dt className="font-bold text-slate-950">{term}</dt>
+      <dd className="mt-2 leading-7 text-slate-600">{detail}</dd>
+    </div>
   );
 }
 
-function DetailBlock({ title, children }: { title: string; children: React.ReactNode }) {
+function DetailSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="border border-slate-200 bg-white p-5 sm:p-6">
-      <h2 className="text-2xl font-bold text-slate-950">{title}</h2>
-      <div className="mt-4 leading-8 text-slate-700">{children}</div>
+    <section>
+      <h2 className="text-balance text-2xl font-bold text-slate-950 sm:text-3xl">{title}</h2>
+      <div className="mt-5 max-w-3xl text-pretty leading-8 text-slate-700">{children}</div>
     </section>
   );
 }

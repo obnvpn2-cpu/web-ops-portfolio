@@ -1,64 +1,41 @@
 # web-ops-portfolio
 
-Web実装・運用改善のポートフォリオです。Web実装、Webサイト運用改善、業務自動化を通じて、現場課題を使いやすい形に落とし込む経験を整理して見せるための静的サイトです。
+Webエンジニア／フロントエンド領域への応募に使うポートフォリオです。
+HTML、CSS、JavaScript、PHPを中心とした約5年のWeb制作・開発経験と、現在のReact改修、API連携、本番運用の実績を掲載しています。
 
-## 目的
+## 掲載内容
 
-閲覧者が短時間で以下を確認できる構成にしています。
+- 現在の実務とReactへの段階移行
+- Chartbeat Realtime Ranking APIを使ったランキング機能の内製化
+- 特設ページ、キャンペーンLP、Web運用改善のケーススタディ
+- 実務、個人開発、継続学習を分けた技術経験
+- React / TypeScriptで作った選考ステータス管理デモ
 
-- Web制作・改修・運用改善の経験
-- LP / ECサイト制作・改修の関わり方
-- Excel VBA / Power Automate による業務改善
-- React / TypeScript を使った小さなデモ実装
-- 公開できる実績と技術領域
+## 技術構成
 
-## 使用技術
-
-- Next.js
-- React
+- Next.js 16 App Router
+- React 19
 - TypeScript
-- Tailwind CSS
+- Tailwind CSS 4
 - lucide-react
 
-## 実装ポイント
+Next.js、TypeScriptはこのサイトと個人開発で使用しています。TypeScriptを実務経験としては掲載していません。
+Reactは個人開発に加え、PHP / HTMLベースの既存ページを一部ずつコンポーネント化する実務でも使用しています。
 
-- App Router のトップページ + 実績詳細ページ構成
-- 外部API、DB、認証、CMSは未使用
-- コンテンツを `data/` 配下の型付きデータに分離
-- 実績は6件。公開案件2件、公開制作実績2件、守秘義務に配慮した抽象ケース2件を掲載
-- 表示コンポーネントを `components/` 配下に分離
-- `JobTrackerDemo` のみクライアントコンポーネント
-- title、description、Open Graph / Twitter Card を設定
-- キーボード操作とフォーカス表示を考慮
-- 読みやすさを優先し、控えめなCSSアニメーションと `prefers-reduced-motion` 対応を追加
-- 375px / 768px / 1440px の確認を前提にしたレスポンシブ構成
+## サイト構成
 
-## デモ機能
+- トップページとケーススタディ詳細の静的生成
+- `data/`配下の型付きデータから実績と技術経験を表示
+- Client Componentは操作デモのみ
+- キーボード操作、フォーカス表示、`prefers-reduced-motion`への対応
+- 375px、768px、1440pxを基準としたレスポンシブ設計
 
-`選考ステータス管理デモ` は、ポートフォリオ用サンプルデータだけを使った操作デモです。
-
-- ステータスフィルタ
-- リモート条件フィルタ
-- 年収レンジフィルタ
-- 技術タグフィルタ
-- 件数表示
-- 判定理由表示
-- 空状態表示
-
-実在の企業名、転職活動データ、個人の応募状況は含みません。
-
-## React / TypeScript の扱い
-
-React / TypeScript は実務経験として誇張せず、「このサイトで使用」「学習・強化中」の技術として掲載しています。実務経験ありの技術とはセクションを分けています。
-
-## 起動方法
+## 起動と確認
 
 ```bash
 npm install
 npm run dev
 ```
-
-ローカル確認:
 
 ```bash
 npm run typecheck
@@ -68,20 +45,12 @@ npm run build
 
 ## 公開範囲
 
-個人名、職務経歴書、連絡先、居住情報など、個人情報になり得る情報は掲載していません。
+個人名、連絡先、職務経歴書、社内システムの設定値は掲載していません。
+非公開案件は、対外的に説明できる担当範囲と技術構成に限定しています。
 
 ## 公開制作実績
 
-- 豆乳キャンペーン特設サイト: `https://www.k-tounyu.jp/cp/soylatte/`
-
-- POLA 顔エステ アンケート風LP: `https://www.pola.co.jp/esthe/special/questionnaire/`
-
-
-## 追加したスキル
-
-`mattpocock/skills` から主要スキルを追加しました。Codexを再起動すると、次回以降の会話で認識されます。
-
-- 確認: `npx skills@latest list -g`
-- 使い方: `tdd`、`review`、`diagnosing-bugs` など、使いたいスキル名や用途を会話で指定します。
-- 迷う場合: `ask-matt` を指定すると、状況に合うスキルを選ぶための案内として使えます。
-
+- [鉄平の「楽ゆる」トークイベント](https://kahoku.news/members/rakuyuru2026/)
+- [宮城の高校入試 特設ページ](https://kahoku.news/exam/miyagi-hs/)
+- [パンに、おやつに、寄りソイラテ](https://www.k-tounyu.jp/cp/soylatte/)
+- [POLA 顔エステ アンケート風LP](https://www.pola.co.jp/esthe/special/questionnaire/)

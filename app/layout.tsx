@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import { Geist_Mono, Noto_Sans_JP } from "next/font/google";
+import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 
 const notoSansJp = Noto_Sans_JP({
@@ -8,19 +8,14 @@ const notoSansJp = Noto_Sans_JP({
   weight: ["400", "500", "700", "900"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://web-ops-portfolio.vercel.app"),
   title: {
-    default: "Web実装・運用改善ポートフォリオ",
+    default: "Web Engineer Portfolio | Web開発・フロントエンド",
     template: "%s",
   },
   description:
-    "Webサイト運用、LP / ECサイト制作・改修、業務自動化の経験をもとに、現場課題を使いやすい形へ落とし込むポートフォリオです。",
+    "HTML / CSS / JavaScript / PHPを中心とした約5年のWeb制作・開発経験と、Reactへの段階移行、API連携、運用改善の実績をまとめたポートフォリオです。",
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
@@ -30,17 +25,17 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
-    title: "Web実装・運用改善ポートフォリオ",
+    title: "Web Engineer Portfolio | Web開発・フロントエンド",
     description:
-      "Web実装、運用改善、業務自動化を通じて現場課題を整理するポートフォリオ。",
+      "約5年のWeb制作・開発経験と、React改修、API連携、本番運用のケーススタディ。",
     type: "website",
     locale: "ja_JP",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Web実装・運用改善ポートフォリオ",
+    title: "Web Engineer Portfolio | Web開発・フロントエンド",
     description:
-      "Web実装、運用改善、業務自動化を通じて現場課題を整理するポートフォリオ。",
+      "約5年のWeb制作・開発経験と、React改修、API連携、本番運用のケーススタディ。",
   },
 };
 
@@ -52,7 +47,7 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${notoSansJp.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
+      className={`${notoSansJp.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col">{children}</body>
     </html>

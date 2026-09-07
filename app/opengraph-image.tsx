@@ -25,17 +25,17 @@ export default function Image() {
         }}
       >
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 28, fontWeight: 700 }}>
-          <span>Web実装・運用改善</span>
-          <span style={{ color: "#0f766e" }}>公開実績</span>
+          <span>Web Engineer Portfolio</span>
+          <span style={{ color: "#0f766e" }}>実務経験 約5年</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 92, fontWeight: 900, lineHeight: 1.1 }}>Web実装・運用改善ポートフォリオ</div>
+          <div style={{ fontSize: 84, fontWeight: 900, lineHeight: 1.15 }}>Web開発・フロントエンド</div>
           <div style={{ marginTop: 24, maxWidth: 820, fontSize: 34, lineHeight: 1.5 }}>
-            現場課題を整理して、使いやすいWeb実装と業務改善へ落とし込む
+            既存Webの改修、Reactへの段階移行、API連携、公開後の運用
           </div>
         </div>
         <div style={{ display: "flex", gap: 16, fontSize: 24, fontWeight: 700 }}>
-          {["Web実装", "運用改善", "業務自動化"].map((item) => (
+          {["HTML / CSS / JavaScript", "PHP / React", "REST API / Cron"].map((item) => (
             <span key={item} style={{ border: "3px solid #0f172a", padding: "12px 18px", background: "#ffffff" }}>
               {item}
             </span>

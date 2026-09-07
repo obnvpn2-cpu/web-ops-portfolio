@@ -1,32 +1,18 @@
-﻿import { MapPinned, MonitorCog } from "lucide-react";
-import type { ReactNode } from "react";
-
-const desiredAreas = ["Webフロントエンド / Web実装", "社内SE・社内DX・業務改善", "Webサイト運用改善"];
-const workStyles = ["継続的に改善へ関われる環境", "実装と改善の両方に関われる環境"];
+import { profile } from "@/data/profile";
 
 export function CareerDirection() {
   return (
-    <div className="grid gap-4 lg:grid-cols-2">
-      <DirectionBlock icon={<MonitorCog aria-hidden="true" size={22} />} title="希望領域" items={desiredAreas} />
-      <DirectionBlock icon={<MapPinned aria-hidden="true" size={22} />} title="働き方" items={workStyles} />
-    </div>
-  );
-}
-
-function DirectionBlock({ icon, title, items }: { icon: ReactNode; title: string; items: string[] }) {
-  return (
-    <article className="border-2 border-slate-950 bg-white p-5 shadow-[6px_6px_0_#0f766e]">
-      <div className="flex items-center gap-3">
-        <span className="grid size-11 place-items-center bg-slate-950 text-white">{icon}</span>
-        <h3 className="text-lg font-bold text-slate-950">{title}</h3>
+    <div className="grid gap-8 lg:grid-cols-[0.62fr_1fr] lg:gap-14">
+      <h3 className="text-xl font-bold leading-8 text-slate-950">Webの実装から公開後の確認まで関わる</h3>
+      <div>
+        <p className="text-lg leading-9 text-slate-700">{profile.desiredWork}</p>
+        <ul className="mt-6 grid gap-3 text-sm font-bold text-slate-800 sm:grid-cols-2">
+          <li className="border-t border-slate-300 pt-3">Webエンジニア / フロントエンド</li>
+          <li className="border-t border-slate-300 pt-3">既存Webの改修とReactへの段階移行</li>
+          <li className="border-t border-slate-300 pt-3">REST API・DB連携を含む画面実装</li>
+          <li className="border-t border-slate-300 pt-3">本番反映後も動作を追える運用</li>
+        </ul>
       </div>
-      <ul className="mt-5 space-y-3">
-        {items.map((item) => (
-          <li key={item} className="border-l-4 border-amber-400 pl-3 leading-7 text-slate-700">
-            {item}
-          </li>
-        ))}
-      </ul>
-    </article>
+    </div>
   );
 }

@@ -1,22 +1,26 @@
-﻿import { skillGroups } from "@/data/skills";
+import { skillGroups } from "@/data/skills";
 
 export function SkillMatrix() {
   return (
-    <div className="grid gap-4 md:grid-cols-2">
+    <div className="border-t border-slate-300">
       {skillGroups.map((group) => (
-        <article key={group.label} className="border border-slate-200 bg-white p-5">
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-teal-700">
-            {group.description}
-          </p>
-          <h3 className="mt-2 text-lg font-bold text-slate-950">{group.label}</h3>
-          <div className="mt-5 flex flex-wrap gap-2">
-            {group.items.map((item) => (
-              <span key={item} className="border border-slate-300 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700">
-                {item}
-              </span>
-            ))}
+        <section
+          key={group.label}
+          className="grid gap-5 border-b border-slate-300 py-7 lg:grid-cols-[0.42fr_1fr] lg:gap-12"
+        >
+          <div>
+            <h3 className="text-lg font-bold text-slate-950">{group.label}</h3>
+            <p className="mt-2 text-sm leading-6 text-slate-600">{group.description}</p>
           </div>
-        </article>
+          <dl className="grid gap-x-8 gap-y-4 sm:grid-cols-2">
+            {group.items.map((item) => (
+              <div key={item.name}>
+                <dt className="font-bold text-slate-900">{item.name}</dt>
+                {item.note ? <dd className="mt-1 text-sm leading-6 text-slate-600">{item.note}</dd> : null}
+              </div>
+            ))}
+          </dl>
+        </section>
       ))}
     </div>
   );

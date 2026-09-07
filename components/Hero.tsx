@@ -1,75 +1,83 @@
-﻿import { ArrowDown, BriefcaseBusiness } from "lucide-react";
+import { ArrowDown, Code2 } from "lucide-react";
 import { profile } from "@/data/profile";
-
-const ctas = [
-  { label: "実績を見る", href: "#case-studies", icon: ArrowDown },
-];
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-slate-200 bg-[linear-gradient(90deg,#f8fafc_0,#f8fafc_29px,#e2e8f0_30px),linear-gradient(0deg,#f8fafc_0,#f8fafc_29px,#e2e8f0_30px)] bg-[size:30px_30px]">
-      <div className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,#0f766e,#f2b705,#1d4ed8)]" />
-      <div className="mx-auto grid min-h-dvh max-w-6xl items-center gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[1.04fr_0.96fr] lg:py-24">
-        <div className="motion-fade-up">
-          <p className="mb-5 inline-flex items-center gap-2 border border-teal-700 bg-white px-3 py-2 font-mono text-xs font-semibold text-teal-800 shadow-[4px_4px_0_#0f172a]">
-            <BriefcaseBusiness aria-hidden="true" size={16} />
-            {profile.role}
-          </p>
-          <h1 className="max-w-3xl text-5xl font-black leading-[1.05] text-slate-950 sm:text-7xl">
+    <>
+      <a
+        href="#main-content"
+        className="sr-only z-50 bg-white px-4 py-3 font-bold text-slate-950 focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:outline focus:outline-3 focus:outline-offset-2 focus:outline-teal-700"
+      >
+        本文へ移動
+      </a>
+      <header className="border-b border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-4 sm:px-8">
+          <a href="#top" className="font-bold tracking-tight text-slate-950">
             {profile.name}
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-9 text-slate-800 sm:text-xl">
-            {profile.summary}
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            {ctas.map((cta, index) => {
-              const Icon = cta.icon;
-              return (
-                <a
-                  key={cta.label}
-                  href={cta.href}
-                  
-                  className={
-                    index === 0
-                      ? "inline-flex min-h-12 items-center justify-center gap-2 border-2 border-slate-950 bg-slate-950 px-5 py-3 text-sm font-bold text-white shadow-[5px_5px_0_#f2b705] transition hover:-translate-y-0.5 hover:shadow-[7px_7px_0_#f2b705] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal-700"
-                      : "inline-flex min-h-12 items-center justify-center gap-2 border-2 border-slate-950 bg-white px-5 py-3 text-sm font-bold text-slate-950 transition hover:-translate-y-0.5 hover:bg-teal-50 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal-700"
-                  }
-                >
-                  <Icon aria-hidden="true" size={18} />
-                  {cta.label}
+          </a>
+          <nav aria-label="ページ内ナビゲーション">
+            <ul className="flex items-center gap-4 text-sm font-bold text-slate-700 sm:gap-6">
+              <li>
+                <a className="hover:text-teal-800 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal-700" href="#case-studies">
+                  実績
                 </a>
-              );
-            })}
-          </div>
+              </li>
+              <li>
+                <a className="hover:text-teal-800 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal-700" href="#tech-stack">
+                  技術経験
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
+      </header>
 
-        <div className="motion-fade-up motion-delay-1 border-2 border-slate-950 bg-white p-4 shadow-[10px_10px_0_#0f766e] transition-transform duration-300 hover:-translate-y-1 sm:p-6">
-          <div className="mb-5 flex items-center justify-between border-b border-slate-200 pb-4">
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-              仕事の進め方
+      <section id="top" className="border-b border-slate-200 bg-slate-50">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+          <div className="max-w-4xl">
+            <p className="inline-flex items-center gap-2 text-sm font-bold text-teal-800">
+              <Code2 aria-hidden="true" size={18} />
+              {profile.role}
             </p>
-            <p className="border border-slate-300 px-2 py-1 font-mono text-xs text-slate-600">
-              要約
+            <h1 className="mt-5 text-balance text-4xl font-black leading-[1.18] tracking-[-0.03em] text-slate-950 sm:text-6xl">
+              {profile.headline}
+            </h1>
+            <p className="mt-7 max-w-3xl text-pretty text-lg leading-9 text-slate-700 sm:text-xl">
+              {profile.summary}
             </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a
+                href="#case-studies"
+                className="inline-flex min-h-12 items-center justify-center gap-2 bg-slate-950 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-teal-800 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal-700"
+              >
+                主要ケーススタディを見る
+                <ArrowDown aria-hidden="true" size={17} />
+              </a>
+              <a
+                href="#tech-stack"
+                className="inline-flex min-h-12 items-center justify-center px-5 py-3 text-sm font-bold text-slate-800 underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-teal-700 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal-700"
+              >
+                経験技術の区分を見る
+              </a>
+            </div>
           </div>
-          <div className="space-y-4">
-            {[
-              ["課題", "更新依頼と確認観点が散らばる"],
-              ["整理", "目的・変更箇所・確認項目に分解"],
-              ["実装", "壊れにくい構造と運用しやすい単位へ"],
-              ["改善", "手戻りと繰り返し作業を減らす"],
-            ].map(([label, text]) => (
-              <div key={label} className="grid grid-cols-[72px_1fr] gap-3 border-b border-dashed border-slate-200 pb-4 last:border-b-0">
-                <span className="font-mono text-xs font-bold text-teal-700">{label}</span>
-                <span className="text-sm leading-7 text-slate-800">{text}</span>
-              </div>
-            ))}
-          </div>
+
+          <dl className="mt-12 grid border-y border-slate-300 sm:grid-cols-3 sm:divide-x sm:divide-slate-300">
+            <HeroFact term="経験" detail="Web制作・開発 約5年" />
+            <HeroFact term="実務の中心" detail="HTML / CSS / JavaScript / PHP" />
+            <HeroFact term="現在" detail="Reactへの段階移行と既存改修" />
+          </dl>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
-
-
+function HeroFact({ term, detail }: { term: string; detail: string }) {
+  return (
+    <div className="py-5 sm:px-5 sm:first:pl-0">
+      <dt className="text-xs font-bold text-teal-800">{term}</dt>
+      <dd className="mt-2 text-sm font-bold leading-6 text-slate-900">{detail}</dd>
+    </div>
+  );
+}

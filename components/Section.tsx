@@ -2,27 +2,25 @@
 
 type SectionProps = {
   id: string;
-  eyebrow?: string;
   title: string;
   description?: string;
   children: ReactNode;
+  tone?: "white" | "muted";
 };
 
-export function Section({ id, eyebrow, title, description, children }: SectionProps) {
+export function Section({ id, title, description, children, tone = "white" }: SectionProps) {
   return (
-    <section id={id} className="motion-section scroll-mt-24 py-14 sm:py-18">
+    <section
+      id={id}
+      className={`scroll-mt-6 border-b border-slate-200 py-14 sm:py-20 ${tone === "muted" ? "bg-slate-50" : "bg-white"}`}
+    >
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="mb-8 max-w-3xl">
-          {eyebrow ? (
-            <p className="mb-3 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-teal-700">
-              {eyebrow}
-            </p>
-          ) : null}
-          <h2 className="text-2xl font-bold leading-tight text-slate-950 sm:text-3xl">
+        <div className="mb-9 max-w-3xl">
+          <h2 className="text-balance text-3xl font-black leading-tight tracking-[-0.02em] text-slate-950 sm:text-4xl">
             {title}
           </h2>
           {description ? (
-            <p className="mt-4 text-base leading-8 text-slate-700">{description}</p>
+            <p className="mt-4 text-pretty text-base leading-8 text-slate-700 sm:text-lg">{description}</p>
           ) : null}
         </div>
         {children}

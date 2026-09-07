@@ -1,91 +1,76 @@
-﻿import { CaseStudyList } from "@/components/CaseStudyList";
 import { CareerDirection } from "@/components/CareerDirection";
+import { CaseStudyList } from "@/components/CaseStudyList";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { JobTrackerDemo } from "@/components/JobTrackerDemo";
 import { Section } from "@/components/Section";
 import { SkillMatrix } from "@/components/SkillMatrix";
-import { StrengthList } from "@/components/StrengthList";
-import { profile } from "@/data/profile";
+import { currentWork, profile } from "@/data/profile";
 
 export default function Home() {
   return (
-    <div className="min-h-full bg-slate-50 text-slate-950">
+    <div className="min-h-full bg-white text-slate-950">
       <Hero />
-      <main>
+      <main id="main-content">
         <Section
-          id="about"
-          eyebrow="自己紹介"
-          title="制作と運用の間にある課題を、使える形へ整理する"
-          description={profile.about}
+          id="current-work"
+          title="現在の実務"
+          description={profile.currentPosition}
         >
-          <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-            <div className="border border-slate-200 bg-white p-5">
-              <h3 className="text-lg font-bold text-slate-950">これまでの経験</h3>
-              <p className="mt-3 leading-8 text-slate-700">
-                LP / ECサイト制作・改修、自社Webサイト運用、Excel VBA / Power Automateによる業務改善を経験。目的と制約を確認し、現場で継続して扱える実装・手順・確認観点に整えることを重視しています。
-              </p>
-            </div>
-            <div className="border border-slate-200 bg-white p-5">
-              <h3 className="text-lg font-bold text-slate-950">大切にしていること</h3>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {profile.focusAreas.map((area) => (
-                  <span
-                    key={area}
-                    className="border border-slate-300 bg-slate-50 px-3 py-2 text-sm font-bold text-slate-700"
-                  >
-                    {area}
-                  </span>
-                ))}
-              </div>
-              <p className="mt-4 border-l-4 border-teal-700 pl-3 text-sm leading-7 text-slate-700">
-                {profile.location}
-              </p>
-            </div>
+          <div className="border-t border-slate-300">
+            {currentWork.map((item) => (
+              <article
+                key={item.title}
+                className="grid gap-4 border-b border-slate-300 py-7 lg:grid-cols-[0.36fr_1fr] lg:gap-12"
+              >
+                <div>
+                  <h3 className="text-lg font-bold text-slate-950">{item.title}</h3>
+                  <p className="mt-2 text-sm font-medium leading-6 text-teal-800">{item.technologies}</p>
+                </div>
+                <p className="max-w-3xl leading-8 text-slate-700">{item.description}</p>
+              </article>
+            ))}
           </div>
         </Section>
 
         <Section
-          id="strengths"
-          eyebrow="強み"
-          title="強み"
-          description="制作・運用・改善を分断せず、現場で使われ続ける状態まで考えます。"
-        >
-          <StrengthList />
-        </Section>
-
-        <Section
           id="case-studies"
-          eyebrow="実績"
-          title="課題解決ストーリー"
-          description="公開情報として安全に抽象化した実績です。詳細な社名・数値は掲載していません。"
+          title="主要ケーススタディ"
+          description="課題の確認から調査、実装、本番反映後の確認まで、担当した範囲が分かる実績を上位に置いています。"
+          tone="muted"
         >
           <CaseStudyList />
         </Section>
 
         <Section
-          id="react-lab"
-          eyebrow="操作デモ"
-          title="選考ステータス管理デモ"
-          description="React / TypeScript を使った小さな操作デモです。フィルタ、件数表示、空状態、判定理由の表示を確認できます。"
-        >
-          <JobTrackerDemo />
-        </Section>
-
-        <Section
           id="tech-stack"
-          eyebrow="使用技術"
-          title="経験技術"
-          description="React / TypeScriptは実務経験として誇張せず、このサイトで使用している技術と学習・強化中の領域として分けています。"
+          title="技術経験"
+          description="実務、個人開発、継続学習を分けています。特に経験範囲の限られる技術は、担当した内容も併記しました。"
         >
           <SkillMatrix />
         </Section>
 
         <Section
+          id="react-demo"
+          title="個人開発"
+          description="TypeScriptとNext.jsは、このポートフォリオと個人開発を中心に使用しています。"
+          tone="muted"
+        >
+          <details className="group border-y border-slate-300 bg-white">
+            <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 px-1 py-4 font-bold text-slate-950 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal-700 [&::-webkit-details-marker]:hidden">
+              <span>選考ステータス管理デモを開く</span>
+              <span aria-hidden="true" className="text-xl text-teal-800 group-open:rotate-45">+</span>
+            </summary>
+            <div className="pb-7">
+              <JobTrackerDemo />
+            </div>
+          </details>
+        </Section>
+
+        <Section
           id="career-direction"
-          eyebrow="希望領域"
-          title="今後関わりたい領域"
-          description="Web実装と業務改善の両方に関わり、使う人が運用しやすい状態を作る仕事を希望しています。"
+          title="希望する業務"
+          description="今までの実装・改修・運用経験と、現在のReact改修の両方を使える業務を希望しています。"
         >
           <CareerDirection />
         </Section>
