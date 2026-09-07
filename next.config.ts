@@ -5,7 +5,6 @@ const basePath = isGitHubPages ? "/web-ops-portfolio" : "";
 
 const nextConfig: NextConfig = {
   output: "export",
-  trailingSlash: true,
   basePath,
   assetPrefix: basePath,
 };
