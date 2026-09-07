@@ -3,6 +3,8 @@
 Webエンジニア／フロントエンド領域への応募に使うポートフォリオです。
 HTML、CSS、JavaScript、PHPを中心とした約5年のWeb制作・開発経験と、現在のReact改修、API連携、本番運用の実績を掲載しています。
 
+公開ページ: https://obnvpn2-cpu.github.io/web-ops-portfolio/
+
 ## 掲載内容
 
 - 現在の実務とReactへの段階移行
