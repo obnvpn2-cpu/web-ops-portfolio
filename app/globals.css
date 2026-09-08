@@ -26,6 +26,115 @@ body {
   color: #0f172a;
 }
 
+@keyframes hero-intro-in {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.hero-intro-item {
+  animation: hero-intro-in 680ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-intro-delay-80 { animation-delay: 80ms; }
+.hero-intro-delay-170 { animation-delay: 170ms; }
+.hero-intro-delay-260 { animation-delay: 260ms; }
+.hero-intro-delay-360 { animation-delay: 360ms; }
+.hero-intro-delay-470 { animation-delay: 470ms; }
+
+.motion-arrow {
+  transition: transform 180ms ease-out;
+}
+
+a:hover .motion-arrow,
+a:focus-visible .motion-arrow {
+  transform: translate(3px, -3px);
+}
+
+.motion-arrow-down {
+  transition: transform 180ms ease-out;
+}
+
+a:hover .motion-arrow-down,
+a:focus-visible .motion-arrow-down {
+  transform: translateY(3px);
+}
+
+a:active,
+button:active {
+  transform: scale(0.98);
+  transition-duration: 100ms;
+}
+
+.chartbeat-flow .flow-step,
+.chartbeat-flow .flow-arrow,
+.chartbeat-flow .flow-note {
+  opacity: 0.7;
+}
+
+.chartbeat-flow.is-visible .flow-step {
+  animation: flow-step-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.chartbeat-flow.is-visible .flow-step:nth-child(1) { animation-delay: 0ms; }
+.chartbeat-flow.is-visible .flow-step:nth-child(3) { animation-delay: 180ms; }
+.chartbeat-flow.is-visible .flow-step:nth-child(5) { animation-delay: 360ms; }
+
+.chartbeat-flow.is-visible .flow-arrow {
+  animation: flow-arrow-in 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.chartbeat-flow.is-visible .flow-arrow:nth-child(2) { animation-delay: 120ms; }
+.chartbeat-flow.is-visible .flow-arrow:nth-child(4) { animation-delay: 300ms; }
+
+.chartbeat-flow.is-visible .flow-note {
+  animation: flow-note-in 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.chartbeat-flow.is-visible .flow-note-fallback { animation-delay: 500ms; }
+.chartbeat-flow.is-visible .flow-note-cloudflare { animation-delay: 620ms; }
+
+@keyframes flow-step-in {
+  from { opacity: 0.7; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flow-arrow-in {
+  from { opacity: 0.7; transform: translateX(-4px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes flow-note-in {
+  from { opacity: 0.7; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.details-content {
+  opacity: 0;
+  clip-path: inset(0 0 12px 0);
+  transition: opacity 240ms ease-out, clip-path 240ms ease-out;
+}
+
+details[open] .details-content {
+  opacity: 1;
+  clip-path: inset(0);
+}
+
+details summary > span:last-child {
+  transition: transform 240ms ease-out;
+}
+
+details[open] summary > span:last-child {
+  transform: rotate(45deg);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -34,5 +143,14 @@ body {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
   }
+
+  .hero-intro-item,
+  .chartbeat-flow .flow-step,
+  .chartbeat-flow .flow-arrow,
+  .chartbeat-flow .flow-note,
+  .details-content { opacity: 1 !important; }
 }

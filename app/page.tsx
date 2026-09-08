@@ -61,7 +61,7 @@ export default function Home() {
               <span>選考ステータス管理デモを開く</span>
               <span aria-hidden="true" className="text-xl text-teal-800 group-open:rotate-45">+</span>
             </summary>
-            <div className="pb-7">
+            <div className="details-content pb-7">
               <JobTrackerDemo />
             </div>
           </details>

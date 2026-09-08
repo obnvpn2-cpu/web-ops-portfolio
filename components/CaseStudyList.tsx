@@ -33,7 +33,7 @@ export function CaseStudyList() {
             className="mt-7 inline-flex min-h-12 w-fit items-center gap-2 bg-amber-300 px-5 py-3 text-sm font-bold text-amber-950 transition-colors hover:bg-amber-200 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-white"
           >
             Chartbeat案件の詳細
-            <ArrowUpRight aria-hidden="true" size={17} />
+            <ArrowUpRight aria-hidden="true" className="motion-arrow" size={17} />
           </Link>
         </div>
         <ChartbeatFlow />
@@ -67,7 +67,7 @@ export function CaseStudyList() {
                   className="inline-flex min-h-11 items-center gap-2 underline decoration-slate-300 decoration-2 underline-offset-4 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal-700"
                 >
                   実績詳細
-                  <ArrowUpRight aria-hidden="true" size={15} />
+                  <ArrowUpRight aria-hidden="true" className="motion-arrow" size={15} />
                   <span className="sr-only"> {study.title}</span>
                 </Link>
                 {study.sourceUrl ? (
@@ -79,7 +79,7 @@ export function CaseStudyList() {
                   >
                     公開ページ
                     <span className="sr-only"> {study.title}（新しいタブで開きます）</span>
-                    <ArrowUpRight aria-hidden="true" size={15} />
+                    <ArrowUpRight aria-hidden="true" className="motion-arrow" size={15} />
                   </a>
                 ) : null}
               </div>

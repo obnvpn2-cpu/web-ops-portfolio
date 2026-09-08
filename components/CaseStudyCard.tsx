@@ -24,7 +24,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
           className="inline-flex min-h-11 items-center gap-2 text-slate-950 underline decoration-teal-700 decoration-2 underline-offset-4 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal-700"
         >
           {study.title}の詳細
-          <ArrowUpRight aria-hidden="true" size={16} />
+          <ArrowUpRight aria-hidden="true" className="motion-arrow" size={16} />
         </Link>
         {study.sourceUrl ? (
           <a
@@ -35,7 +35,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
           >
             {study.title}の公開ページ
             <span className="sr-only">（新しいタブで開きます）</span>
-            <ArrowUpRight aria-hidden="true" size={16} />
+            <ArrowUpRight aria-hidden="true" className="motion-arrow" size={16} />
           </a>
         ) : null}
       </div>
