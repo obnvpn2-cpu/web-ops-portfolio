@@ -1,9 +1,9 @@
 export const profile = {
-  name: "Web Engineer Portfolio",
-  role: "Webエンジニア / フロントエンド領域",
-  headline: "HTML / CSS / JavaScript / PHPを中心に、Web制作・開発を約5年経験",
+  name: "尾花 隆仁",
+  role: "Web Engineer Portfolio",
+  headline: "既存Webを読み解き、改善し、運用までつなげる。",
   summary:
-    "既存サイトの改修、特設ページ制作、Web運用に加え、現在はPHP / HTMLベースのページを一部ずつReactコンポーネントへ切り出し、段階的に置き換える改修を担当しています。",
+    "既存のWebサイトや処理を調べ、HTML / CSS / JavaScript / PHPによる改修から、Reactへの段階移行、API連携、本番反映後の確認まで担当してきました。",
   currentPosition:
     "既存画面の構造を調べ、動作を保ったまま修正しやすい単位へ整える仕事が中心です。Reactのほか、Laravel、REST API、Dockerなども既存環境の中で扱っています。",
   desiredWork:

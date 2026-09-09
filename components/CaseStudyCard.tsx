@@ -1,44 +1,63 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, PanelsTopLeft, Workflow } from "lucide-react";
 import type { CaseStudy } from "@/data/caseStudies";
 
-export function CaseStudyCard({ study }: { study: CaseStudy }) {
-  return (
-    <article className="flex h-full flex-col border border-slate-300 bg-white p-5 sm:p-6">
-      <p className="text-xs font-bold text-teal-800">{study.label} ・ {study.period}</p>
-      <h3 className="mt-3 text-balance text-2xl font-bold leading-8 text-slate-950">{study.title}</h3>
-      <p className="mt-4 text-sm leading-7 text-slate-700">{study.summary}</p>
-      <dl className="mt-6 grid gap-4 border-t border-slate-200 pt-5">
+export function CaseStudyCard({ study, compact = false }: { study: CaseStudy; compact?: boolean }) {
+  if (compact) {
+    return (
+      <article className="grid gap-4 border-b border-slate-200 py-5 sm:grid-cols-[0.55fr_1fr_auto] sm:items-center sm:gap-7">
         <div>
-          <dt className="text-xs font-bold text-slate-500">担当</dt>
-          <dd className="mt-2 text-sm leading-6 text-slate-800">{study.responsibilities.slice(0, 4).join(" / ")}</dd>
+          <p className="text-[11px] font-bold text-cyan-800">{study.label}</p>
+          <h4 className="mt-1 text-base font-black text-[#082f49]">{study.title}</h4>
         </div>
-        <div>
-          <dt className="text-xs font-bold text-slate-500">結果</dt>
-          <dd className="mt-2 text-sm leading-6 text-slate-800">{study.result}</dd>
-        </div>
-      </dl>
-      <div className="mt-auto flex flex-wrap gap-x-5 gap-y-3 pt-7 text-sm font-bold">
+        <p className="text-sm leading-7 text-slate-600">{study.summary}</p>
         <Link
           href={`/case-studies/${study.slug}`}
-          className="inline-flex min-h-11 items-center gap-2 text-slate-950 underline decoration-teal-700 decoration-2 underline-offset-4 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal-700"
+          className="inline-flex min-h-10 w-fit items-center gap-2 text-sm font-bold text-cyan-800 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-cyan-700"
         >
-          {study.title}の詳細
-          <ArrowUpRight aria-hidden="true" className="motion-arrow" size={16} />
+          詳しく見る
+          <ArrowRight aria-hidden="true" className="motion-arrow" size={15} />
         </Link>
-        {study.sourceUrl ? (
-          <a
-            href={study.sourceUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex min-h-11 items-center gap-2 text-teal-800 underline decoration-slate-300 decoration-2 underline-offset-4 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal-700"
-          >
-            {study.title}の公開ページ
-            <span className="sr-only">（新しいタブで開きます）</span>
-            <ArrowUpRight aria-hidden="true" className="motion-arrow" size={16} />
-          </a>
-        ) : null}
+      </article>
+    );
+  }
+
+  const isExam = study.slug === "miyagi-high-school-exam";
+
+  return (
+    <article className="group grid min-w-0 gap-5 border border-slate-200 bg-white p-4 sm:grid-cols-[0.64fr_1fr] sm:items-center sm:p-5">
+      <MiniPreview flow={isExam} />
+      <div className="min-w-0">
+        <p className="text-[11px] font-bold text-cyan-800">{study.label}</p>
+        <h3 className="mt-2 text-balance text-lg font-black leading-7 text-[#082f49]">{study.title}</h3>
+        <p className="mt-2 line-clamp-3 text-xs leading-6 text-slate-600">{study.summary}</p>
+        <Link
+          href={`/case-studies/${study.slug}`}
+          className="mt-3 inline-flex min-h-10 items-center gap-2 text-xs font-bold text-cyan-800 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-cyan-700"
+        >
+          詳しく見る
+          <ArrowRight aria-hidden="true" className="motion-arrow" size={14} />
+        </Link>
       </div>
     </article>
+  );
+}
+
+function MiniPreview({ flow }: { flow: boolean }) {
+  const Icon = flow ? Workflow : PanelsTopLeft;
+
+  return (
+    <div aria-hidden="true" className="relative min-h-[128px] overflow-hidden rounded-sm bg-slate-100 p-3">
+      <div className="flex h-full min-h-[104px] overflow-hidden rounded-sm border border-slate-200 bg-white">
+        <div className="w-7 bg-[#082f49] p-2">
+          <span className="block size-2 rounded-full bg-cyan-400" />
+          <span className="mt-3 block h-1 w-3 bg-white/40" />
+          <span className="mt-2 block h-1 w-3 bg-white/40" />
+        </div>
+        <div className="flex flex-1 items-center justify-center p-3">
+          <Icon className="text-cyan-700" size={36} strokeWidth={1.4} />
+        </div>
+      </div>
+    </div>
   );
 }
