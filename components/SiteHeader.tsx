@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { ArrowRight, Menu } from "lucide-react";
 import { profile } from "@/data/profile";
+import { assetPath } from "@/lib/assetPath";
 
 const navigation = [
   { href: "/#case-studies", label: "実績" },
@@ -21,31 +21,31 @@ export function SiteHeader() {
 
       <header className="sticky top-0 z-40 border-b border-slate-200/90 bg-white/95 backdrop-blur-sm">
         <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-6 px-5 sm:px-8">
-          <Link
-            href="/#top"
+          <a
+            href={assetPath("/#top")}
             className="flex items-baseline gap-3 text-slate-950 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-cyan-700"
           >
             <span className="text-lg font-black tracking-[0.16em]">{profile.name}</span>
             <span className="hidden text-[11px] font-medium text-slate-500 sm:inline">{profile.role}</span>
-          </Link>
+          </a>
 
           <nav aria-label="サイトナビゲーション" className="hidden items-center gap-7 md:flex">
             <ul className="flex items-center gap-7 text-xs font-bold text-slate-700">
               {navigation.map((item) => (
                 <li key={item.href}>
-                  <Link className="transition-colors hover:text-cyan-800 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-cyan-700" href={item.href}>
+                  <a className="transition-colors hover:text-cyan-800 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-cyan-700" href={assetPath(item.href)}>
                     {item.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
-            <Link
-              href="/#case-studies"
+            <a
+              href={assetPath("/#case-studies")}
               className="inline-flex min-h-11 items-center gap-2 rounded-sm bg-[#082f49] px-5 py-2 text-xs font-bold text-white transition-colors hover:bg-cyan-800 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-cyan-700"
             >
               制作事例を見る
               <ArrowRight aria-hidden="true" size={15} />
-            </Link>
+            </a>
           </nav>
 
           <details className="group relative md:hidden">
@@ -57,10 +57,10 @@ export function SiteHeader() {
               <ul className="grid text-sm font-bold text-slate-800">
                 {navigation.map((item) => (
                   <li key={item.href}>
-                    <Link className="flex min-h-11 items-center justify-between px-3 hover:bg-cyan-50 focus-visible:outline focus-visible:outline-3 focus-visible:outline-cyan-700" href={item.href}>
+                    <a className="flex min-h-11 items-center justify-between px-3 hover:bg-cyan-50 focus-visible:outline focus-visible:outline-3 focus-visible:outline-cyan-700" href={assetPath(item.href)}>
                       {item.label}
                       <ArrowRight aria-hidden="true" size={15} />
-                    </Link>
+                    </a>
                   </li>
                 ))}
               </ul>

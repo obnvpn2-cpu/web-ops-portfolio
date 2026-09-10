@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { profile } from "@/data/profile";
+import { assetPath } from "@/lib/assetPath";
 
 export function Footer() {
   return (
@@ -12,10 +12,10 @@ export function Footer() {
         </p>
         <nav aria-label="フッターナビゲーション">
           <ul className="flex flex-wrap gap-x-5 gap-y-2 font-bold text-slate-300">
-            <li><Link className="inline-flex min-h-11 items-center hover:text-white" href="/#case-studies">実績</Link></li>
-            <li><Link className="inline-flex min-h-11 items-center hover:text-white" href="/#capabilities">できること</Link></li>
-            <li><Link className="inline-flex min-h-11 items-center hover:text-white" href="/#tech-stack">技術経験</Link></li>
-            <li><Link className="inline-flex min-h-11 items-center hover:text-white" href="/#desired-work">希望する業務</Link></li>
+            <li><a className="inline-flex min-h-11 items-center hover:text-white" href={assetPath("/#case-studies")}>実績</a></li>
+            <li><a className="inline-flex min-h-11 items-center hover:text-white" href={assetPath("/#capabilities")}>できること</a></li>
+            <li><a className="inline-flex min-h-11 items-center hover:text-white" href={assetPath("/#tech-stack")}>技術経験</a></li>
+            <li><a className="inline-flex min-h-11 items-center hover:text-white" href={assetPath("/#desired-work")}>希望する業務</a></li>
           </ul>
         </nav>
       </div>

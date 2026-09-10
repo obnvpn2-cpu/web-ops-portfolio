@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { ChartbeatFlow } from "@/components/ChartbeatFlow";
 import { Footer } from "@/components/Footer";
 import { SiteHeader } from "@/components/SiteHeader";
 import { caseStudies, getCaseStudy } from "@/data/caseStudies";
+import { assetPath } from "@/lib/assetPath";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -49,13 +49,13 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
         <article>
           <header className="border-b border-slate-200 bg-slate-50">
             <div className="mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-16">
-              <Link
-                href="/#case-studies"
+              <a
+                href={assetPath("/#case-studies")}
                 className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-slate-700 underline decoration-slate-300 decoration-2 underline-offset-4 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal-700"
               >
                 <ArrowLeft aria-hidden="true" size={16} />
                 ケーススタディ一覧へ戻る
-              </Link>
+              </a>
               <div className="mt-10 max-w-4xl">
                 <p className="text-sm font-bold text-teal-800">{study.label} ・ {study.period}</p>
                 <h1 className="mt-4 text-balance text-4xl font-black leading-tight tracking-[-0.03em] text-slate-950 sm:text-6xl">

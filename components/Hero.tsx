@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { profile } from "@/data/profile";
@@ -19,20 +18,20 @@ export function Hero() {
             {profile.summary}
           </p>
           <div className="hero-intro-item hero-intro-delay-360 mt-8 grid gap-3 sm:flex sm:items-center">
-            <Link
-              href="/#case-studies"
+            <a
+              href={assetPath("/#case-studies")}
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-sm bg-[#082f49] px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-cyan-800 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-cyan-700"
             >
               制作事例を見る
               <ArrowDown aria-hidden="true" className="motion-arrow-down" size={16} />
-            </Link>
-            <Link
-              href="/#desired-work"
+            </a>
+            <a
+              href={assetPath("/#desired-work")}
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-sm border border-slate-400 px-6 py-3 text-sm font-bold text-[#082f49] transition-colors hover:border-cyan-700 hover:bg-cyan-50 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-cyan-700"
             >
               希望する業務
               <ArrowRight aria-hidden="true" size={16} />
-            </Link>
+            </a>
           </div>
         </div>
 

@@ -37,7 +37,7 @@ export function SkillMatrix() {
       <details className="group mt-4 border-y border-slate-200">
         <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between py-3 text-sm font-bold text-[#082f49] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-cyan-700 [&::-webkit-details-marker]:hidden">
           <span>経験範囲を詳しく見る</span>
-          <span aria-hidden="true" className="text-lg text-cyan-700 transition-transform group-open:rotate-45">+</span>
+          <span aria-hidden="true" className="details-toggle-icon text-lg text-cyan-700" />
         </summary>
         <div className="details-content border-t border-slate-200 pb-3">
           {skillGroups.map((group) => (

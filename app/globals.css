@@ -85,12 +85,12 @@ details[open] .details-content {
   clip-path: inset(0);
 }
 
-details summary > span:last-child {
-  transition: transform 240ms ease-out;
+.details-toggle-icon::before {
+  content: "+";
 }
 
-details[open] summary > span:last-child {
-  transform: rotate(45deg);
+details[open] .details-toggle-icon::before {
+  content: "−";
 }
 
 @media (prefers-reduced-motion: reduce) {

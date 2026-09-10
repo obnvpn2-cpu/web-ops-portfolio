@@ -19,8 +19,8 @@ export default function Home() {
   return (
     <div className="min-h-full bg-white text-slate-950">
       <SiteHeader />
-      <Hero />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1}>
+        <Hero />
         <CaseStudyList />
 
         <section id="capabilities" className="scroll-mt-20 border-y border-slate-200 bg-slate-50 py-7 sm:py-9">
@@ -80,7 +80,7 @@ export default function Home() {
             <details className="group border-y border-slate-300 bg-white px-4 sm:px-6">
               <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 text-sm font-bold text-[#082f49] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-cyan-700 [&::-webkit-details-marker]:hidden">
                 <span>個人開発　React / TypeScript 選考ステータス管理デモ</span>
-                <span aria-hidden="true" className="text-xl text-cyan-700 transition-transform group-open:rotate-45">+</span>
+                <span aria-hidden="true" className="details-toggle-icon text-xl text-cyan-700" />
               </summary>
               <div className="details-content pb-6">
                 <JobTrackerDemo />
