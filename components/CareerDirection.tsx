@@ -1,14 +1,13 @@
 import { ArrowRight } from "lucide-react";
 import { profile } from "@/data/profile";
-
-const imageBasePath = process.env.GITHUB_ACTIONS === "true" ? "/web-ops-portfolio" : "";
+import { assetPath } from "@/lib/assetPath";
 
 export function CareerDirection() {
   return (
     <section
-      id="contact"
+      id="desired-work"
       className="relative scroll-mt-20 overflow-hidden bg-[#062d45] text-white"
-      style={{ backgroundImage: `url(${imageBasePath}/images/contact-background.jpg)`, backgroundPosition: "center", backgroundSize: "cover" }}
+      style={{ backgroundImage: `url(${assetPath("/images/contact-background.jpg")})`, backgroundPosition: "center", backgroundSize: "cover" }}
     >
       <div className="absolute inset-0 bg-[#062d45]/90" />
       <div className="relative mx-auto grid max-w-7xl items-center gap-6 px-5 py-10 sm:px-8 md:grid-cols-[0.8fr_1fr_auto] md:py-12">

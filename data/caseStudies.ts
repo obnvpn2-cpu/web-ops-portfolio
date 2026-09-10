@@ -6,6 +6,8 @@
   type: string;
   summary: string;
   sourceUrl?: string;
+  thumbnail?: string;
+  thumbnailAlt?: string;
   confidentiality: string;
   problem: string;
   responsibilities: string[];

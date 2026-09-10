@@ -13,7 +13,7 @@ export function CaseStudyList() {
     <>
       <section id="case-studies" className="scroll-mt-20 bg-[#062d45] py-12 text-white sm:py-16">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid gap-8 lg:grid-cols-[0.82fr_1.16fr_0.72fr] lg:items-center lg:gap-8">
+          <div className="grid gap-8 lg:grid-cols-[0.68fr_1fr] lg:items-center lg:gap-10">
             <div>
               <p className="text-sm font-bold text-cyan-300">注目の制作事例</p>
               <h2 className="mt-3 text-balance text-3xl font-black leading-tight tracking-[-0.025em] sm:text-4xl">
@@ -29,20 +29,28 @@ export function CaseStudyList() {
               </div>
               <Link
                 href={`/case-studies/${chartbeat.slug}`}
-                className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-sm bg-cyan-500 px-5 py-2.5 text-sm font-bold text-[#062d45] transition-colors hover:bg-cyan-300 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-white"
+                className="mt-7 hidden min-h-11 items-center gap-2 rounded-sm bg-cyan-500 px-5 py-2.5 text-sm font-bold text-[#062d45] transition-colors hover:bg-cyan-300 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-white lg:inline-flex"
               >
                 詳しく見る
                 <ArrowRight aria-hidden="true" className="motion-arrow" size={16} />
               </Link>
             </div>
 
-            <ChartbeatFlow />
+            <ChartbeatFlow className="overflow-hidden rounded-sm border border-white/15 bg-[#041f30] shadow-[0_6px_18px_rgba(0,0,0,0.2)]" />
 
-            <dl className="grid gap-5 border-t border-white/20 pt-6 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0">
+            <dl className="grid gap-6 border-t border-white/20 pt-7 sm:grid-cols-3 lg:col-span-2">
               <CaseFact term="課題" detail="外部ランキングサービスが不安定になり、表示を継続できる代替機能が必要でした。" />
               <CaseFact term="対応" detail="Chartbeat APIを使う構成へ置き換え、10分ごとの取得、失敗時の表示継続、キャッシュ調整まで担当しました。" />
               <CaseFact term="結果" detail="ランキング表示を継続できる構成にし、Cloudflareキャッシュによる更新停止を解消しました。" />
             </dl>
+
+            <Link
+              href={`/case-studies/${chartbeat.slug}`}
+              className="inline-flex min-h-11 w-fit items-center gap-2 rounded-sm bg-cyan-500 px-5 py-2.5 text-sm font-bold text-[#062d45] transition-colors hover:bg-cyan-300 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-white lg:hidden"
+            >
+              詳しく見る
+              <ArrowRight aria-hidden="true" className="motion-arrow" size={16} />
+            </Link>
           </div>
         </div>
       </section>

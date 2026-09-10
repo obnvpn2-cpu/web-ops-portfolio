@@ -1,4 +1,5 @@
-﻿import { profile } from "@/data/profile";
+import Link from "next/link";
+import { profile } from "@/data/profile";
 
 export function Footer() {
   return (
@@ -11,10 +12,10 @@ export function Footer() {
         </p>
         <nav aria-label="フッターナビゲーション">
           <ul className="flex flex-wrap gap-x-5 gap-y-2 font-bold text-slate-300">
-            <li><a className="hover:text-white" href="#case-studies">実績</a></li>
-            <li><a className="hover:text-white" href="#capabilities">できること</a></li>
-            <li><a className="hover:text-white" href="#tech-stack">技術経験</a></li>
-            <li><a className="hover:text-white" href="#contact">お問い合わせ</a></li>
+            <li><Link className="inline-flex min-h-11 items-center hover:text-white" href="/#case-studies">実績</Link></li>
+            <li><Link className="inline-flex min-h-11 items-center hover:text-white" href="/#capabilities">できること</Link></li>
+            <li><Link className="inline-flex min-h-11 items-center hover:text-white" href="/#tech-stack">技術経験</Link></li>
+            <li><Link className="inline-flex min-h-11 items-center hover:text-white" href="/#desired-work">希望する業務</Link></li>
           </ul>
         </nav>
       </div>

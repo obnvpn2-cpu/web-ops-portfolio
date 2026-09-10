@@ -50,27 +50,6 @@ body {
 .hero-intro-delay-360 { animation-delay: 360ms; }
 .hero-intro-delay-470 { animation-delay: 470ms; }
 
-.hero-system-item {
-  position: relative;
-}
-
-.hero-system-item::after {
-  position: absolute;
-  right: -14px;
-  width: 14px;
-  height: 1px;
-  background: #06b6d4;
-  content: "";
-}
-
-.hero-code-card {
-  transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hero-system:hover .hero-code-card {
-  transform: translateY(-4px);
-}
-
 .motion-arrow {
   transition: transform 180ms ease-out;
 }
@@ -93,51 +72,6 @@ a:active,
 button:active {
   transform: scale(0.98);
   transition-duration: 100ms;
-}
-
-.chartbeat-flow .flow-step,
-.chartbeat-flow .flow-arrow,
-.chartbeat-flow .flow-note {
-  opacity: 0.7;
-}
-
-.chartbeat-flow.is-visible .flow-step {
-  animation: flow-step-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.chartbeat-flow.is-visible .flow-step-1 { animation-delay: 0ms; }
-.chartbeat-flow.is-visible .flow-step-2 { animation-delay: 140ms; }
-.chartbeat-flow.is-visible .flow-step-3 { animation-delay: 280ms; }
-.chartbeat-flow.is-visible .flow-step-4 { animation-delay: 420ms; }
-
-.chartbeat-flow.is-visible .flow-arrow {
-  animation: flow-arrow-in 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.chartbeat-flow.is-visible .flow-arrow-1 { animation-delay: 80ms; }
-.chartbeat-flow.is-visible .flow-arrow-2 { animation-delay: 220ms; }
-.chartbeat-flow.is-visible .flow-arrow-3 { animation-delay: 360ms; }
-
-.chartbeat-flow.is-visible .flow-note {
-  animation: flow-note-in 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.chartbeat-flow.is-visible .flow-note-fallback { animation-delay: 500ms; }
-.chartbeat-flow.is-visible .flow-note-cloudflare { animation-delay: 620ms; }
-
-@keyframes flow-step-in {
-  from { opacity: 0.7; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes flow-arrow-in {
-  from { opacity: 0.7; transform: translateX(-4px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes flow-note-in {
-  from { opacity: 0.7; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .details-content {
@@ -173,15 +107,5 @@ details[open] summary > span:last-child {
   }
 
   .hero-intro-item,
-  .chartbeat-flow .flow-step,
-  .chartbeat-flow .flow-arrow,
-  .chartbeat-flow .flow-note,
   .details-content { opacity: 1 !important; }
-}
-
-@media (min-width: 640px) {
-  .hero-system-item::after {
-    right: -22px;
-    width: 22px;
-  }
 }

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { ChartbeatFlow } from "@/components/ChartbeatFlow";
 import { Footer } from "@/components/Footer";
+import { SiteHeader } from "@/components/SiteHeader";
 import { caseStudies, getCaseStudy } from "@/data/caseStudies";
 
 type PageProps = {
@@ -43,7 +44,8 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
 
   return (
     <div className="min-h-full bg-white text-slate-950">
-      <main>
+      <SiteHeader />
+      <main id="main-content">
         <article>
           <header className="border-b border-slate-200 bg-slate-50">
             <div className="mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-16">
@@ -78,7 +80,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
 
           <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16">
             {study.slug === "chartbeat-ranking" ? (
-              <div className="mb-12">
+              <div className="mb-12 overflow-hidden rounded-sm border border-slate-200 bg-[#041f30] shadow-[0_6px_18px_rgba(8,47,73,0.12)]">
                 <ChartbeatFlow />
               </div>
             ) : null}

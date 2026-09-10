@@ -1,26 +1,35 @@
-import { Braces, Cloud, Code2, Container, Database, FileCode2, GitBranch, ServerCog } from "lucide-react";
+import { FaAws } from "react-icons/fa";
+import {
+  SiDocker,
+  SiGit,
+  SiJavascript,
+  SiLaravel,
+  SiPhp,
+  SiReact,
+  SiTypescript,
+} from "react-icons/si";
 import { skillGroups } from "@/data/skills";
 
 const highlights = [
-  { icon: Braces, name: "React", scope: "実務" },
-  { icon: Code2, name: "JavaScript", scope: "実務" },
-  { icon: FileCode2, name: "PHP", scope: "実務" },
-  { icon: ServerCog, name: "Laravel", scope: "既存処理の改修" },
-  { icon: Database, name: "REST API / SQL", scope: "実務" },
-  { icon: Container, name: "Docker", scope: "既存環境" },
-  { icon: Cloud, name: "AWS", scope: "軽微な設定" },
-  { icon: GitBranch, name: "TypeScript", scope: "個人開発" },
+  { icon: SiReact, name: "React", scope: "実務", color: "#087ea4" },
+  { icon: SiJavascript, name: "JavaScript", scope: "実務", color: "#b58b00" },
+  { icon: SiTypescript, name: "TypeScript", scope: "個人開発", color: "#3178c6" },
+  { icon: SiPhp, name: "PHP", scope: "実務", color: "#777bb4" },
+  { icon: SiLaravel, name: "Laravel", scope: "既存処理の調査・軽微な改修", color: "#f42b20" },
+  { icon: FaAws, name: "AWS", scope: "軽微な設定・状態確認", color: "#d97706" },
+  { icon: SiDocker, name: "Docker", scope: "既存環境", color: "#2496ed" },
+  { icon: SiGit, name: "Git", scope: "実務", color: "#f05032" },
 ];
 
 export function SkillMatrix() {
   return (
     <div>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-        {highlights.map(({ icon: Icon, name, scope }) => (
-          <div key={name} className="flex min-h-[92px] flex-col items-center justify-center border border-slate-200 bg-white px-2 py-3 text-center">
-            <Icon aria-hidden="true" className="text-cyan-700" size={25} strokeWidth={1.7} />
+        {highlights.map(({ icon: Icon, name, scope, color }) => (
+          <div key={name} className="flex min-h-[112px] flex-col items-center justify-center border border-slate-200 bg-white px-2 py-3 text-center">
+            <Icon aria-hidden="true" size={28} style={{ color }} />
             <p className="mt-2 text-xs font-black text-[#082f49]">{name}</p>
-            <p className="mt-1 text-[9px] font-medium text-slate-500">{scope}</p>
+            <p className="mt-1 text-[11px] font-medium leading-4 text-slate-500">{scope}</p>
           </div>
         ))}
       </div>

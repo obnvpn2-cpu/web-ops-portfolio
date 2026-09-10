@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, PanelsTopLeft, Workflow } from "lucide-react";
 import type { CaseStudy } from "@/data/caseStudies";
+import { assetPath } from "@/lib/assetPath";
 
 export function CaseStudyCard({ study, compact = false }: { study: CaseStudy; compact?: boolean }) {
   if (compact) {
@@ -26,7 +28,22 @@ export function CaseStudyCard({ study, compact = false }: { study: CaseStudy; co
 
   return (
     <article className="group grid min-w-0 gap-5 border border-slate-200 bg-white p-4 sm:grid-cols-[0.64fr_1fr] sm:items-center sm:p-5">
-      <MiniPreview flow={isExam} />
+      {study.thumbnail && study.thumbnailAlt ? (
+        <div className="aspect-[8/5] overflow-hidden rounded-sm bg-slate-100">
+          <Image
+            src={assetPath(study.thumbnail)}
+            alt={study.thumbnailAlt}
+            width={640}
+            height={400}
+            loading="lazy"
+            unoptimized
+            decoding="async"
+            className="h-full w-full object-cover"
+          />
+        </div>
+      ) : (
+        <MiniPreview flow={isExam} />
+      )}
       <div className="min-w-0">
         <p className="text-[11px] font-bold text-cyan-800">{study.label}</p>
         <h3 className="mt-2 text-balance text-lg font-black leading-7 text-[#082f49]">{study.title}</h3>

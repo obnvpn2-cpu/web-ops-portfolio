@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { JobTrackerDemo } from "@/components/JobTrackerDemo";
 import { SkillMatrix } from "@/components/SkillMatrix";
+import { SiteHeader } from "@/components/SiteHeader";
 import { currentWork, profile } from "@/data/profile";
 
 const capabilities = [
@@ -17,6 +18,7 @@ const capabilities = [
 export default function Home() {
   return (
     <div className="min-h-full bg-white text-slate-950">
+      <SiteHeader />
       <Hero />
       <main id="main-content">
         <CaseStudyList />
