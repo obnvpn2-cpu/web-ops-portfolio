@@ -1,5 +1,4 @@
 export const profile = {
-  name: "尾花 隆仁",
   role: "Web Engineer Portfolio",
   headline: "既存Webを読み解き、改善し、運用までつなげる。",
   summary:

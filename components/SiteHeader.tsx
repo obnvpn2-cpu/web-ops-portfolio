@@ -25,8 +25,7 @@ export function SiteHeader() {
             href={assetPath("/#top")}
             className="flex items-baseline gap-3 text-slate-950 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-cyan-700"
           >
-            <span className="text-lg font-black tracking-[0.16em]">{profile.name}</span>
-            <span className="hidden text-[11px] font-medium text-slate-500 sm:inline">{profile.role}</span>
+            <span className="text-sm font-black tracking-[0.08em] sm:text-base">{profile.role}</span>
           </a>
 
           <nav aria-label="サイトナビゲーション" className="hidden items-center gap-7 md:flex">

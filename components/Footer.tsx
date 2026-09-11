@@ -6,9 +6,7 @@ export function Footer() {
     <footer className="bg-[#041f30] px-5 py-6 text-white sm:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-4 text-[11px] sm:flex-row sm:items-center sm:justify-between">
         <p>
-          <span className="font-black tracking-[0.12em]">{profile.name}</span>
-          <span className="ml-3 text-slate-400">|</span>
-          <span className="ml-3 text-slate-300">{profile.role}</span>
+          <span className="font-black tracking-[0.08em]">{profile.role}</span>
         </p>
         <nav aria-label="フッターナビゲーション">
           <ul className="flex flex-wrap gap-x-5 gap-y-2 font-bold text-slate-300">
