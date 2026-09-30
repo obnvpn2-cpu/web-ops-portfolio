@@ -2,9 +2,7 @@
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 
-const siteUrl = process.env.GITHUB_ACTIONS === "true"
-  ? "https://obnvpn2-cpu.github.io/web-ops-portfolio/"
-  : "https://web-ops-portfolio.vercel.app/";
+const siteUrl = "https://obnvpn2-cpu.github.io/web-ops-portfolio/";
 
 const notoSansJp = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
