@@ -26,7 +26,7 @@ export const skillGroups: SkillGroup[] = [
     label: "サーバー・データ実務",
     description: "既存処理の調査、改修、データ連携",
     items: [
-      { name: "PHP" },
+      { name: "PHP", note: "既存Webの改修、API連携に加え、脆弱性情報を受けた影響確認・対応にも従事" },
       { name: "WordPress" },
       { name: "Laravel", note: "既存処理の調査と軽微な改修" },
       { name: "MySQL / SQL", note: "既存データの取得とページ連携" },
@@ -35,11 +35,12 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     label: "開発・運用実務",
-    description: "既存環境での開発、定期処理、公開後の確認",
+    description: "既存環境での開発、定期処理、公開後の確認、クラウド移行",
     items: [
       { name: "Git / GitHub / GitLab" },
-      { name: "Docker", note: "既存Docker環境での開発と動作確認" },
-      { name: "AWS", note: "管理画面での軽微な設定と状態確認" },
+      { name: "Docker", note: "既存Docker環境での開発・動作確認、ECS移行対応で使用" },
+      { name: "AWS", note: "既存環境の状態確認、EC2からECSへの移行対応に参画（進行中）" },
+      { name: "EC2 / ECS", note: "既存EC2環境からECSへの移行対応に参画（進行中）" },
       { name: "Bash / Cron", note: "定期取得、ログ保存、ログの定期削除" },
       { name: "Cloudflare / .htaccess", note: "キャッシュ原因の切り分けとCache-Control調整" },
     ],
