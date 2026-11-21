@@ -14,10 +14,10 @@ const highlights = [
   { icon: SiReact, name: "React", scope: "実務", color: "#087ea4" },
   { icon: SiJavascript, name: "JavaScript", scope: "実務", color: "#b58b00" },
   { icon: SiTypescript, name: "TypeScript", scope: "個人開発", color: "#3178c6" },
-  { icon: SiPhp, name: "PHP", scope: "実務", color: "#777bb4" },
+  { icon: SiPhp, name: "PHP", scope: "実務・脆弱性対応", color: "#777bb4" },
   { icon: SiLaravel, name: "Laravel", scope: "既存処理の調査・軽微な改修", color: "#f42b20" },
-  { icon: FaAws, name: "AWS", scope: "軽微な設定・状態確認", color: "#d97706" },
-  { icon: SiDocker, name: "Docker", scope: "既存環境", color: "#2496ed" },
+  { icon: FaAws, name: "AWS", scope: "EC2→ECS移行対応中", color: "#d97706" },
+  { icon: SiDocker, name: "Docker", scope: "実務・ECS移行", color: "#2496ed" },
   { icon: SiGit, name: "Git", scope: "実務", color: "#f05032" },
 ];
 
